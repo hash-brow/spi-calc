@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPI & SPI</title>
+    <style>
+        input,select{
+        height:25px;
+        width:300px;
+        border:2px solid;
+        border-radius:10px;
+        }
+        label{
+        font-weight:bold;
+        font size:25px;
+        }
+    button{
+    height:28px;
+    width:90px;
+    cursor:pointer;
+    border:2px solid;
+    border-radius:10px;
+    }
+    body{
+    margin-top:100px;
+    align-items:center;
+    }
+    </style>
+</head>
+<body bgcolor="aqua"><center>
+<u><h1>SPI & CPI CALCULATOR</h1></u>
+<label for="branch">SELECT YOUR BRANCH: </label>
+<select id="branch">
+<option value="AE">Aerospace Engineering</option>
+<option value="BSBE">Biological Sciences and Bio-Engineering</option>
+<option value="CHE">Chemical Engineering</option>
+<option value="CE">Civil Engineering</option>
+<option value="CSE">Computer Science and Engineering</option>
+<option value="EE">Electrical Engineering</option>
+<option value="MSE">Materials Science and Engineering</option>
+<option value="ME">Mechanical Engineering</option>
+<option value="CHM">Chemistry</option>
+<option value="ECO">Economics</option>
+<option value="MTH">Mathematics and Scientific Computing</option>
+<option value="PHY">Physics</option>
+<option value="SDS">Statistics And Data Science</option>
+</select>
+<BR><BR><label for="sems">SELECT YOUR Semester: </label><select id="sems"><option value="SEM1">SEM1</option><option value="SEM2">SEM2</option></select>
+    <BR><u><h3 id="head">SEM1:- </h3></u>
+<p id="spis"></p>
+<b>ELC:</b> <select id="elc"><option>SELECT</option><option>YES</option><option>No</option></select><br><BR>
+<button onclick="myFunction();myFunction1()" >Submit</button><br><br>
+<div class="=semester">
+<div id="container" style="display:none;">
+<b>MTH111:</b> <select id="mth111" name="mth111"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<b>MTH112:</b> <select id="mth112" name="mth112"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+
+    <b><span id="phy"></span>: </b><select id="phy11x" name="phy11x"><option value="10">A+</option><option value="A">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<b><span id="g1"></span>:</b> <select id="a1" name="a1"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<b><span id="g2"></span>:</b> <select id="a2" name="a2"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<b><span id="g3"></span>:</b> <select id="a3" name="a3"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<b><span id="g4"></span>: </b><select id="a4" name="a4"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+    <b><span id="g5"></span>:</b> <select id="a5" name="a5"><option value="10">A+</option><option value="10">A</option><option value="9">B+</option><option value="8">B</option><option value="7">C+</option><option value="6">C</option><option value="5">D+</option><option value="4">D</option><option value="0">E</option><option value="0">F</option><option value="0">I</option></select><br>
+<br><button id="sem1" onclick="sem1()">Submit</button>
+    <b><p id="ans"></p></b>
+</div>
+
+</div><u>
+<h3>CPI:-</h3></u>
+<b>Enter SPI of SEM1:</b> <input id="sems1" value="0"><br><br>
+<b>Enter SPI of SEM2: </b><input id="sems2" value="0"><br><br>
+<button id="cpi" onclick="cpicalc()">Submit</button><br>
+<b><p id="show"></p></b></center>
+<script>
+
+function myFunction() {
+ document.getElementById("container").style.display = "block";
+  var x = document.getElementById("elc").value;
+  var y = document.getElementById("branch").value;
+  var a = document.getElementById("phy");
+
+  var b = document.getElementById("g1");
+
+  var c = document.getElementById("g2");
+  var d = document.getElementById("g3");
+  var e = document.getElementById("g4");
+  var f = document.getElementById("g5");
+
+  var a1 = document.getElementById("a1");
+  var a2 = document.getElementById("a2");
+  var a3 = document.getElementById("a3");
+  var a4 = document.getElementById("a4");
+  var a5 = document.getElementById("a5");
+  if (y=="CSE" || y=="MSE") {
+    a.innerHTML="PHY114";
+    }
+   else if (y=="AE" || y=="CHE" || y=="CHM" || y=="CE") {
+  a.innerHTML="PHY112";
+    }
+    else if (y=="EE" || y=="ME" || y=="PHY") {
+  a.innerHTML="PHY113";
+    }
+    else if (y=="BSBE" || y=="ECO" || y=="ES" || y=="MTH" || y=="SDS") {
+ a.innerHTML="PHY115";
+    }
+if (x=="YES") {
+    b.innerHTML="ELC";
+    a1.name="eng";
+    c.innerHTML="PHY111";
+    a2.name="phy111";
+    d.innerHTML="TA111";
+    a3.name="ta111";
+    e.innerHTML="CHM112";
+    a4.name="chm112";
+    f.innerHTML="CHM113";
+    a5.name="chm113";
+    }
+   else if (x=="No") {
+  b.innerHTML="ESC111";
+  a1.name="esc111";
+  c.innerHTML="ESC112";
+  a2.name="esc112";
+  d.innerHTML="LIF111";
+  a3.name="lif111";
+  e.innerHTML="ETH111";
+  a4.name="eth111";
+  f.innerHTML="CHM111";
+  a5.name="chm111";
+    }
+}
+function sem1(){
+var m1= document.getElementById("mth111");
+var m2= document.getElementById("mth112");
+var p= document.getElementById("phy");
+var ec1= document.getElementById("a1");
+var ec2= document.getElementById("a2");
+var li= document.getElementById("a3");
+var et= document.getElementById("a4");
+var ch= document.getElementById("a5");
+var mth111;
+var mth112;
+var phy11x;
+var ec11;
+var ec12;
+var lif111;
+var eth111;
+var chm111;
+var scec11;
+var scec12;
+var sclif111;
+var sceth111;
+var scchm111;
+var scec1;
+var scec2;
+var sclif;
+var sceth;
+var scchm;
+mth111=document.getElementById("mth111").value;
+mth112=document.getElementById("mth112").value;
+phy11x=document.getElementById("phy11x").value;
+ec11=document.getElementById("a1").value;
+ec12=document.getElementById("a2").value;
+lif111=document.getElementById("a3").value;
+eth111=document.getElementById("a4").value;
+chm111=document.getElementById("a5").value;
+scec11=document.getElementById("a1").name;
+scec12=document.getElementById("a2").name;
+sclif111=document.getElementById("a3").name;
+sceth111=document.getElementById("a4").name;
+scchm111=document.getElementById("a5").name;
+if(scec11=="eng"){
+scec1=9;
+}
+else{
+scec1=7;
+}
+if(scec12=="phy111"){
+scec2=3;
+}
+else{
+scec2=7;
+}if(sclif111=="ta111"){
+sclif=9;
+}
+else{
+sclif=6;
+}if(sceth111=="chm112"){
+sceth=4;
+}
+else{
+sceth=3;
+}if(scchm111=="chm113"){
+scchm=4;
+}
+else{
+schm=3;
+}
+var sum=(6*mth111)+(6*mth112)+(11*phy11x)+(scec1*ec11)+(scec2*ec12)+(sclif*lif111)+(sceth*eth111)+(scchm*chm111);
+var sum1=26+scec1+scec2+sclif+sceth;
+var spi1=sum/sum1;
+var sem1=document.getElementById("ans");
+sem1.innerHTML=spi1;
+}
+function myFunction1(){
+var x1= document.getElementById("head");
+var y1= document.getElementById("sems").value;
+var z1= document.getElementById("spis");
+x1.innerHTML=y1;
+z1.innerHTML=spi1;
+}
+function cpicalc(){
+var p;
+var q;
+var p1= document.getElementById("elc").value;
+var q1= document.getElementById("sems").value;
+if(p1=="No" && q1=="SEM1"){
+p=49;
+q=52;
+}
+else if(p1=="YES" && q1=="SEM2"){
+p=49;
+q=52;
+}
+else if(p1=="No" && q1=="SEM2"){
+p=52;
+q=49;
+}
+else if(p1=="YES" && q1=="SEM1"){
+p=52;
+q=49;
+}
+var r=document.getElementById("sems1").value;
+var s=document.getElementById("sems2").value;
+var t=document.getElementById("show");
+var cpi1=((r*p)+(s*q))/101;
+t.innerHTML=cpi1;
+}
+</script>
+</body>
+</html>
