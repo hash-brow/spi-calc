@@ -188,12 +188,12 @@ sclif=6;
 sceth=4;
 }
 else{
-sceth=3;
+sceth=0;
 }if(scchm111=="chm113"){
 scchm=4;
 }
 else{
-schm=3;
+schm=0;
 }
 var sum=(6*mth111)+(6*mth112)+(11*phy11x)+(scec1*ec11)+(scec2*ec12)+(sclif*lif111)+(sceth*eth111)+(scchm*chm111);
 var sum1=26+scec1+scec2+sclif+sceth;
@@ -214,25 +214,25 @@ var q;
 var p1= document.getElementById("elc").value;
 var q1= document.getElementById("sems").value;
 if(p1=="No" && q1=="SEM1"){
-p=49;
+p=46;
 q=52;
 }
 else if(p1=="YES" && q1=="SEM2"){
-p=49;
+p=46;
 q=52;
 }
 else if(p1=="No" && q1=="SEM2"){
 p=52;
-q=49;
+q=46;
 }
 else if(p1=="YES" && q1=="SEM1"){
 p=52;
-q=49;
+q=46;
 }
 var r=document.getElementById("sems1").value;
 var s=document.getElementById("sems2").value;
 var t=document.getElementById("show");
-var cpi1=((r*p)+(s*q))/101;
+var cpi1=((r*p)+(s*q))/(p + q);
 t.innerHTML=cpi1;
 }
 </script>
