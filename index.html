@@ -48,7 +48,7 @@
 <BR><BR><label for="sems">SELECT YOUR Semester: </label><select id="sems"><option value="SEM1">SEM1</option><option value="SEM2">SEM2</option></select>
     <BR><u><h3 id="head">SEM1:- </h3></u>
 <p id="spis"></p>
-<b>ELC:</b> <select id="elc"><option>SELECT</option><option>YES</option><option>No</option></select><br><BR>
+<b>ELC:</b> <select id="elc"><option>SELECT</option><option value="YES">YES</option><option value="No">No</option></select><br><BR>
 <button onclick="myFunction();myFunction1()" >Submit</button><br><br>
 <div class="=semester">
 <div id="container" style="display:none;">
@@ -193,7 +193,7 @@ sceth=0;
 scchm=4;
 }
 else{
-schm=0;
+schm=3;
 }
 var sum=(6*mth111)+(6*mth112)+(11*phy11x)+(scec1*ec11)+(scec2*ec12)+(sclif*lif111)+(sceth*eth111)+(scchm*chm111);
 var sum1=26+scec1+scec2+sclif+sceth;
@@ -232,7 +232,7 @@ q=46;
 var r=document.getElementById("sems1").value;
 var s=document.getElementById("sems2").value;
 var t=document.getElementById("show");
-var cpi1=((r*p)+(s*q))/(p + q);
+var cpi1=((r*p)+(s*q))/98;
 t.innerHTML=cpi1;
 }
 </script>
